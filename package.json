@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": "TrungQuanDev - Một Lập Trình Viên",
-  "description": "https://youtube.com/@trungquandev",
+  "author": "Nghĩa - Một Lập Trình Viên",
   "engines": {
     "node": "18.16.0"
   },
@@ -15,8 +14,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.11.16",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
