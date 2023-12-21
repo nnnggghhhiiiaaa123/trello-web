@@ -1,4 +1,4 @@
-import { Box } from '@mui/material/Box'
+import Box from '@mui/material/Box'
 import { useColorScheme } from '@mui/material'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'

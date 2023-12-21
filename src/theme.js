@@ -72,7 +72,7 @@ const theme = extendTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          '&.MuiTypography-body1': {fontSize: '0.875rem'}
+          '&.MuiTypography-body1': { fontSize: '0.875rem' }
         }
       }
     },
