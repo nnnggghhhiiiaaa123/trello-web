@@ -23,7 +23,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
     const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-        id: column._id,
+        id: column?._id,
         data: { ...column }
     })
 
