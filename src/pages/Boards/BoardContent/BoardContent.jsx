@@ -274,19 +274,21 @@ function BoardContent({ board }) {
             }
         })
     }
-    
+
     const collisionDetectionStrategy = useCallback((args) => {
+        console.log('collisionDetectionStrategy')
         if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) {
-            return closestCorners({...args})
+            return closestCorners({ ...args })
         }
 
-        const pointerCollision = pointerWithin(args)
-        
-        if (pointerCollision.length > 0) {
-            return pointerCollision;
-        }
 
-        return rectIntersection(args);
+
+        const pointerIntersections = pointerWithin
+
+        const intersections = pointerIntersections?.length > 0
+            ? pointerIntersections
+            : rectIntersection(args)
+        //30:35
     }, [activeDragItemType])
     return (
         <DndContext

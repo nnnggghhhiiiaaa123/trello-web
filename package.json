@@ -5,7 +5,7 @@
   "type": "module",
   "author": "Nghĩa - Một Lập Trình Viên",
   "engines": {
-    "node": "18.16.0"
+    "node": "18.18.2"
   },
   "scripts": {
     "dev": "vite --host",
@@ -25,7 +25,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
