@@ -19,7 +19,8 @@ import {
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import { useEffect, useState, useCallback, useRef } from 'react'
-import { cloneDeep, over } from 'lodash'
+import { cloneDeep, isEmpty, over } from 'lodash'
+import { generatePlaceholderCard } from '~/utils/fomatter'
 
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
@@ -86,6 +87,13 @@ function BoardContent({ board }) {
             if (nextActiveColumn) {
                 //Xóa card ở cái column active
                 nextActiveColumn.cards = nextActiveColumn.cards.filter(card => card._id !== activeDraggingCardId)
+
+                //Them placeholder Card nếu Column rỗng
+                if (isEmpty(nextActiveColumn.cards)) {
+
+                    nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)]
+                }
+
                 //Cập nhật lại mảng cardOrderIds cho chuẩn dữ liệu
                 nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(card => card._id)
             }
@@ -100,6 +108,10 @@ function BoardContent({ board }) {
                 }
                 //Tiếp theo là thêm cái card đang kéo vào overcolumn theo vị trí index
                 nextOverColumn.cards = nextOverColumn.cards.toSpliced(newCardIndex, 0, activeDraggingCardData)
+
+                // Xóa cái placeholder card đi nếu nó không tồn tại ( video 37.2 )
+                nextOverColumn.cards = nextOverColumn.cards.filter(card => !card.FE_PlaceholderCard)
+
                 //Cập nhật lại mảng cardOrderIds cho chuẩn dữ liệu
                 nextOverColumn.cards = nextOverColumn.cards.map(card => card._id)
 
@@ -290,7 +302,7 @@ function BoardContent({ board }) {
 
         const pointerIntersections = pointerWithin(args)
 
-        if(!pointerIntersections?.length) return 
+        if (!pointerIntersections?.length) return
 
         // const intersections = pointerIntersections?.length 
         //     ? pointerIntersections
